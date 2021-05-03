@@ -1,0 +1,23 @@
+[report]
+omit =
+    */tests.py
+    */test_*.py
+    */*_tests.py
+
+    # Answers are quiz specific and are hardcoded - nothing to be tested
+    */pset_answers.py
+
+    # main is empty, remove from the report
+    */__main__.py
+
+    # init is empty, remove from the report
+    */__init__.py
+
+    # codes used in CLI are either tested from their corresponding modules or are being tested from csci_utils
+    */cli.py
+
+exclude_lines =
+
+    # Canvas helpers are mock tested. submission of actual pset is not needed to be tested
+    def pset_submission
+
