@@ -4,7 +4,7 @@
 
 
 Please find the project documentation here:
-https://github.com/arashsarmadi/2021sp-final-project-arashsarmadi.git
+https://2021sp-final-project-arashsarmadi.readthedocs.io/en/latest/
 
 
 
