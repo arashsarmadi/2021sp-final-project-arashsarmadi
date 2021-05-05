@@ -5,7 +5,7 @@ Introduction
 .. image:: da.png
 
 Optical Coherence Tomography (OCT)
-===========================
+==================================
 
 Spectral-Domain Optical Coherence Tomography (SD-OCT) is an optical imaging technique which provides retinal
 tissue information with high resolution imaging. OCT images allow for visualization of the structural properties
@@ -49,5 +49,11 @@ Below concepts are used to develop this project based on the learnings from CSCI
 - Atomic Write
 
 - Composition and Descriptors
+
+Project Data
+===========================
+
+Data used for this project is available here:
+https://www.kaggle.com/paultimothymooney/kermany2018
 
 
