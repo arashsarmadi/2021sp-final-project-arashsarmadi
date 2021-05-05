@@ -16,6 +16,7 @@ Harvard Extension School CSCI-E29 Final Project
    test/index.rst
    plot/index.rst
    future/index.rst
+   conclusion/index.rst
 
    modules
 

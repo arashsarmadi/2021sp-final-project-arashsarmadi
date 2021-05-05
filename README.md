@@ -1,8 +1,10 @@
 # Final Project
 -----------------------------------------------------------------------------
+[![Documentation Status](https://readthedocs.org/projects/2021sp-final-project-arashsarmadi/badge/?version=latest)](https://2021sp-final-project-arashsarmadi.readthedocs.io/en/latest/?badge=latest)
 
-Please see the public repo below:
-https://github.com/arashsarmadi/2021sp-final-project-arashsarmadi
+
+Please find the project documentation here:
+https://github.com/arashsarmadi/2021sp-final-project-arashsarmadi.git
 
 
 
