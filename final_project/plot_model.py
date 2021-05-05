@@ -4,7 +4,16 @@ import matplotlib.pyplot as plt
 
 
 def show_cam(gap_weights_l, results, features, test_image, out_img):
-    """displays the class activation map of a particular image"""
+    """
+    A generic function that receives model prediction and generates a simple report and plot
+
+    :param gap_weights_l: weights from model training
+    :param results: model prediction output for each class
+    :param features: model prediction array
+    :param test_image: The image that was used as prediction input
+    :param out_img: path to the output plot
+    :return: saves plot figure
+    """
 
     gap_weights = gap_weights_l[0]
 
@@ -29,12 +38,6 @@ def show_cam(gap_weights_l, results, features, test_image, out_img):
 
     # show the upsampled image
     plt.imshow(np.squeeze(test_image), cmap="gray", alpha=0.2)
-
-    # strongly classified (95% probability) images will be in green, else red
-    # if results[image_index][prediction] > 0.95:
-    #     cmap_str = 'Greens'
-    # else:
-    #     cmap_str = 'Reds'
 
     # overlay the cam output
     plt.imshow(cam, cmap="jet", alpha=0.5)

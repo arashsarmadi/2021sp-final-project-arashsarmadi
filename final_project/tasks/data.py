@@ -3,15 +3,11 @@ import shutil
 
 from luigi import ExternalTask, format, Task
 from csci_utils.luigi.target import SuffixPreservingLocalTarget
-from csci_utils.luigi.task import (
-    Requirement,
-    TargetOutput,
-    Requires,
-)
+from csci_utils.luigi.task import Requirement, TargetOutput, Requires
 
 
 class LocalImage(ExternalTask):
-    """Luigi external task that returns local data"""
+    """Luigi external task that returns local data target"""
 
     __version__ = "1.0"
 
@@ -23,7 +19,7 @@ class LocalImage(ExternalTask):
 
 
 class LocalImageReduced(Task):
-    """Luigi external task that returns local data"""
+    """Luigi external task that returns a target for a small subset of train data"""
 
     __version__ = "1.0"
 
@@ -37,6 +33,10 @@ class LocalImageReduced(Task):
     )
 
     def run(self):
+        """
+        This function goes through the train/test directories and the subdirectories inside for each class and takes
+        a small sample of images and copies them into a new directory.
+        """
         rootdir = self.req_1.output().path
         newpath = self.output().path
         for src_dir, dirs, files in os.walk(rootdir):
