@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Introduction &mdash; Retinal Disease Classification Based on OCT Images  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Project Structure" href="../structure/index.html" />
+    <link rel="prev" title="Harvard Extension School CSCI-E29 Final Project" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Retinal Disease Classification Based on OCT Images
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#optical-coherence-tomography-oct">Optical Coherence Tomography (OCT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-python-solutions">Advanced Python Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-data">Project Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../structure/index.html">Project Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../train/index.html">Training The Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test/index.html">Testing The Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plot/index.html">Reporting Prediction Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../future/index.html">Future Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conclusion/index.html">Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">final_project</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Retinal Disease Classification Based on OCT Images</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/introduction/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<img alt="../_images/da.png" src="../_images/da.png" />
+<div class="section" id="optical-coherence-tomography-oct">
+<h2>Optical Coherence Tomography (OCT)<a class="headerlink" href="#optical-coherence-tomography-oct" title="Permalink to this headline">¶</a></h2>
+<p>Spectral-Domain Optical Coherence Tomography (SD-OCT) is an optical imaging technique which provides retinal
+tissue information with high resolution imaging. OCT images allow for visualization of the structural properties
+of the individual retinal layers which is not possible through clinical examination by the human eye or other
+imaging methods. This makes OCT imaging a promising tool for guiding the diagnosis and treatment of some of the
+leading causes of blindness worldwide such as age-related macular degeneration (AMD) and diabetic macular edema.
+The purpose of the current project is to employ deep learning methods to detect pathological features associated
+with different eye diseases from OCT retinal structural data.</p>
+</div>
+<div class="section" id="problem-description">
+<h2>Problem Description<a class="headerlink" href="#problem-description" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/classes.png" src="../_images/classes.png" />
+<p>Deep learning techniques are often employed to detect these retinal diseases.
+This problem by nature is compute-intensive and GPU is often used for model training on a remote machine e.g.
+a university cluster. Testing the data and plotting the results on the other hand is usually done on the local
+machine as the GPU allocation is limited in time and it is not also easy to work on the plots for research papers
+as the cluster machine does not have many tools available. The back and forth between the local machine and the
+remote machine is done manually by downloading model files through a web interface and then running some code locally.</p>
+<p>This can potentially lead tos data-dependency hell as it is extremely hard to track down what model was build based on
+what parameters and what plots came from which model.</p>
+<p>Another potential problem is package dependency hell where different packages have different dependency requirements.
+Also, a package like Tensorflow has different versions for CPU and GPU so not having isolated environments may results
+in issues.</p>
+</div>
+<div class="section" id="advanced-python-solutions">
+<h2>Advanced Python Solutions<a class="headerlink" href="#advanced-python-solutions" title="Permalink to this headline">¶</a></h2>
+<p>Below concepts are used to develop this project based on the learnings from CSCI-E29 course:</p>
+<ul class="simple">
+<li><p>Luigi</p></li>
+<li><p>Microscience - isolated virtual environments</p></li>
+<li><p>Salted Graphs</p></li>
+<li><p>Atomic Write</p></li>
+<li><p>Composition and Descriptors</p></li>
+</ul>
+</div>
+<div class="section" id="project-data">
+<h2>Project Data<a class="headerlink" href="#project-data" title="Permalink to this headline">¶</a></h2>
+<p>Data used for this project is available here:
+<a class="reference external" href="https://www.kaggle.com/paultimothymooney/kermany2018">https://www.kaggle.com/paultimothymooney/kermany2018</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../structure/index.html" class="btn btn-neutral float-right" title="Project Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Harvard Extension School CSCI-E29 Final Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Arash Sarmadi.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
