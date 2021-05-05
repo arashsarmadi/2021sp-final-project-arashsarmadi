@@ -13,6 +13,7 @@ matplotlib = "*"
 scipy = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
+travis-sphinx = "*"
 
 [requires]
 python_version = "3.8"

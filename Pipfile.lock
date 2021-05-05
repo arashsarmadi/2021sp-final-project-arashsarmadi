@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c7013fd0f0d78b1115a33ed7c69392c7e072094f67371f42eb1a3efb32affc9c"
+            "sha256": "36c87cfbb1167ed315f435405bf02750c25d3626d536208ac3ce1337c9ea7581"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -60,6 +60,14 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==4.0.0"
         },
+        "click": {
+            "hashes": [
+                "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a",
+                "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
+            "version": "==7.1.2"
+        },
         "cloudpickle": {
             "hashes": [
                 "sha256:3a32d0eb0bc6f4d0c57fbc4f3e3780f7a81e6fee0fa935072884d58ae8e1cc7c",
@@ -114,6 +122,12 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2021.4.0"
+        },
+        "ghp-import": {
+            "hashes": [
+                "sha256:c22a9ce10c37753e2688d164d765a700dae4b8d79fa6db0a2c3132ba7881894f"
+            ],
+            "version": "==1.1.0"
         },
         "gitdb": {
             "hashes": [
@@ -723,6 +737,13 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==6.1"
+        },
+        "travis-sphinx": {
+            "hashes": [
+                "sha256:57b7f128b1baa4e94f66900ccf951424b51eba6310535bec27c6607e39915ed0"
+            ],
+            "index": "pypi",
+            "version": "==2.2.1"
         },
         "urllib3": {
             "hashes": [
