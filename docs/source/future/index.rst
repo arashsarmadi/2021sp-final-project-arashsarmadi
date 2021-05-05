@@ -1,53 +1,46 @@
 ===================================
-Introduction
+Future Work
 ===================================
 
 
 
-Optical Coherence Tomography (OCT)
+Automated Cluster Run
 ===========================
 
-Background: Spectral-Domain Optical Coherence Tomography (SD-OCT) is an optical imaging technique which
-provides retinal tissue information with high resolution imaging. OCT images allow for visualization of
-the structural properties of the individual retinal layers which is not possible through clinical examination
-by the human eye or other imaging methods. This makes OCT imaging a promising tool for guiding the diagnosis
-and treatment of some of the leading causes of blindness worldwide such as age-related macular degeneration (AMD)
-and diabetic macular edema. The purpose of the current project is to employ deep learning methods to detect
-pathological features associated with different eye diseases from OCT retinal structural data.
+As described before, Luigi ExternalProgramTask can be used to trigger SSH connection. So instead of manually building
+the model on remote cluster, we can use Python subprocess to send several commands that includes resource allocation
+request, activating environments and running the convolutional neural network package. An example of using subprocess
+is shown below
+
+.. code-block::
+
+    import subprocess
+    import os
+
+    cmd_list = ['srun --partition=gpu --nodes=1 --cpus-per-task 4 --export=ALL --gres=gpu:v100-sxm2:1 --mem=2Gb --time=02:00:00 --pty /bin/bash', 'python -m CNN -d "data/OCTReduced" -o "data/ConvNeuralTrain/retinal_cnn.h5" -a "train" -l "data/ConvNeuralTrain/retinal_cnn.h5"']
+
+    out = []
+    err = []
+
+    for cmd in cmd_list:
+        args = cmd.split()
+        print 'args=',args
+        proc = subprocess.Popen(args,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE)
+        (stdoutdata, stderrdata) = proc.communicate()
+        out.append(stdoutdata)
+        err.append(stderrdata)
+
+    print 'out=',out
+    print 'err=',err
+
+This feature is already under development.
 
 Problem Description
 ===========================
 
+.. image:: cookie.png
 
-
-Deep learning techniques are often employed to detect these retinal diseases.
-This problem by nature is compute-intensive and GPU is often used for model training on a remote machine e.g.
-a university cluster. Testing the data and plotting the results on the other hand is usually done on the local
-machine as the GPU allocation is limited in time and it is not also easy to work on the plots for research papers
-as the cluster machine does not have many tools available. The back and forth between the local machine and the
-remote machine is done manually by downloading model files through a web interface and then running some code locally.
-
-This can potentially lead tos data-dependency hell as it is extremely hard to track down what model was build based on
-what parameters and what plots came from which model.
-
-Another potential problem is package dependency hell where different packages have different dependency requirements.
-Also, a package like Tensorflow has different versions for CPU and GPU so not having isolated environments may results
-in issues.
-
-
-Advanced Python Solutions
-===========================
-
-Below concepts are used to develop this project based on the learnings from CSCI-E29 course:
-
-- Luigi
-
-- Microscience - isolated virtual environments
-
-- Salted Graphs
-
-- Atomic Write
-
-- Composition and Descriptors
-
-
+This problem of runnig a compute-intensive part of the code on a cluster computer is very generic and applies to many
+problems esp. in the field of machine learning. So this is a very good candidate of a cookiecutter template.

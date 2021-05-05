@@ -1,53 +1,47 @@
 ===================================
-Introduction
+Reporting Prediction Results
 ===================================
 
+.. image:: PlotResults-da5920.png
 
 
-Optical Coherence Tomography (OCT)
-===========================
+This task is called on the local machine in the main environment. It will get the prediction results from the test task
+and it will report some simple statistics and saves a salted figure. Please not this is a very simple and generic report
+and is not a contribution of this project. The project aims to build a reproducible and simple to use pipline for ML
+projects of this type.
 
-Background: Spectral-Domain Optical Coherence Tomography (SD-OCT) is an optical imaging technique which
-provides retinal tissue information with high resolution imaging. OCT images allow for visualization of
-the structural properties of the individual retinal layers which is not possible through clinical examination
-by the human eye or other imaging methods. This makes OCT imaging a promising tool for guiding the diagnosis
-and treatment of some of the leading causes of blindness worldwide such as age-related macular degeneration (AMD)
-and diabetic macular edema. The purpose of the current project is to employ deep learning methods to detect
-pathological features associated with different eye diseases from OCT retinal structural data.
+.. code-block::
 
-Problem Description
-===========================
+    class PlotResults(Task):
+        """Luigi task that uses prediction and saves plots"""
 
+        __version__ = "1.0"
 
+        data_source = Parameter()
+        output_pred = Parameter()
+        output_model = Parameter()
+        train_loc = Parameter()
 
-Deep learning techniques are often employed to detect these retinal diseases.
-This problem by nature is compute-intensive and GPU is often used for model training on a remote machine e.g.
-a university cluster. Testing the data and plotting the results on the other hand is usually done on the local
-machine as the GPU allocation is limited in time and it is not also easy to work on the plots for research papers
-as the cluster machine does not have many tools available. The back and forth between the local machine and the
-remote machine is done manually by downloading model files through a web interface and then running some code locally.
+        requires = Requires()
+        req_1 = Requirement(ConvNeuralTest)
+        LOCAL_ROOT = os.path.join(os.getcwd(), "data")
 
-This can potentially lead tos data-dependency hell as it is extremely hard to track down what model was build based on
-what parameters and what plots came from which model.
+        path = os.path.join(LOCAL_ROOT, "{task.__class__.__name__}-{salt}.png")
 
-Another potential problem is package dependency hell where different packages have different dependency requirements.
-Also, a package like Tensorflow has different versions for CPU and GPU so not having isolated environments may results
-in issues.
+        output = TargetOutput(
+            file_pattern=path, target_class=SuffixPreservingLocalTarget, ext=""
+        )
 
+        def run(self):
+            """
+            Function that loads the prediction and call the show_cam plotting method
+            """
+            features = np.load(self.req_1.output().path)
+            test_path = self.req_1.output().path.rstrip("features.npy")
+            results = np.load(test_path + "results.npy")
+            gap_weights_l = np.load(test_path + "gap_weights_l.npy", allow_pickle=True)
+            test_image = np.load(test_path + "image.npy")
 
-Advanced Python Solutions
-===========================
-
-Below concepts are used to develop this project based on the learnings from CSCI-E29 course:
-
-- Luigi
-
-- Microscience - isolated virtual environments
-
-- Salted Graphs
-
-- Atomic Write
-
-- Composition and Descriptors
+            show_cam(gap_weights_l, results, features, test_image, self.output().path)
 
 
