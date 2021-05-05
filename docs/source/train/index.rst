@@ -119,23 +119,23 @@ saves a salted trained model to address the data-dependency hell.
 
 .. code-block::
 
-class ConvNeuralTrain(ConvNeural):
-    """Luigi task for training the model"""
+    class ConvNeuralTrain(ConvNeural):
+        """Luigi task for training the model"""
 
-    __version__ = "1.0"
+        __version__ = "1.0"
 
-    action = "train"
+        action = "train"
 
-    def requires(self):
-        return self.clone(LocalImageReduced)
+        def requires(self):
+            return self.clone(LocalImageReduced)
 
-    path = os.path.join(
-        ConvNeural.LOCAL_ROOT, "{task.__class__.__name__}-{salt}/{task.output_model}"
-    )
+        path = os.path.join(
+            ConvNeural.LOCAL_ROOT, "{task.__class__.__name__}-{salt}/{task.output_model}"
+        )
 
-    output = TargetOutput(
-        file_pattern=path, target_class=SuffixPreservingLocalTarget, ext=""
-    )
+        output = TargetOutput(
+            file_pattern=path, target_class=SuffixPreservingLocalTarget, ext=""
+        )
 
 
 Cluster Train
