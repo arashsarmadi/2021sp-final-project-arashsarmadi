@@ -30,6 +30,9 @@ class PlotResults(Task):
     )
 
     def run(self):
+        """
+        Function that loads the prediction and call the show_cam plotting method
+        """
         features = np.load(self.req_1.output().path)
         test_path = self.req_1.output().path.rstrip("features.npy")
         results = np.load(test_path + "results.npy")

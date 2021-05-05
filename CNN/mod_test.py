@@ -57,9 +57,3 @@ def test_model(test_data_dir, output_path, model_path, features_name):
     gap_weights_l = np.array(last_dense_layer.get_weights())
 
     np.save(os.path.join(output_path, "gap_weights_l"), gap_weights_l)
-
-    # print("features shape: ", features.shape)
-    # print("results shape", results.shape)
-    # print(gap_weights_l)
-    # print(type(gap_weights_l))
-    # print(type(results))

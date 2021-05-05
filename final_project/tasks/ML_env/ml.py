@@ -9,10 +9,7 @@ from luigi.contrib.external_program import (
     ExternalProgramTask,
 )
 
-from csci_utils.luigi.task import (
-    TargetOutput,
-    Requires,
-)
+from csci_utils.luigi.task import TargetOutput, Requires
 
 
 class ConvNeural(ExternalPythonProgramTask):
@@ -35,6 +32,7 @@ class ConvNeural(ExternalPythonProgramTask):
     virtualenv = os.path.join(extra_pythonpath, "final_project/tasks/ML_env/.venv")
 
     def program_args(self):
+        "executes a shell script where a new venv is created for ML envirionment and the train or test code is run"
         data_path = os.path.join(self.LOCAL_ROOT, self.data_source)
         ml_path = "final_project/tasks/ML_env"
         model_path = self.temp_output_path
@@ -94,7 +92,6 @@ class ConvNeuralCluster(ExternalProgramTask):
         file_pattern=path, target_class=SuffixPreservingLocalTarget, ext=""
     )
 
-
     def program_args(self):
 
         cluster_path = os.getenv("CLUSTER_PATH")
@@ -115,7 +112,7 @@ class ConvNeuralCluster(ExternalProgramTask):
 
 
 class ConvNeuralTest(ConvNeural):
-    """Class to Stylize an image using neural_style"""
+    """Luigi task that activates ML venv through its parent class and does the model testing"""
 
     __version__ = "1.0"
     action = "test"
