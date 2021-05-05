@@ -1,4 +1,6 @@
 # Final Project
+[![Build Status](https://travis-ci.com/arashsarmadi/2021sp-final-project-arashsarmadi.svg?branch=master)](https://travis-ci.com/arashsarmadi/2021sp-final-project-arashsarmadi)
+
 -----------------------------------------------------------------------------
 
 Please find the project documentation here:
