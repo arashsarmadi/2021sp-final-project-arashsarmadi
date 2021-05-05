@@ -1,25 +1,18 @@
-import os
-import shutil
-
-from luigi import ExternalTask, format, Task
-from csci_utils.luigi.target import SuffixPreservingLocalTarget
-from csci_utils.luigi.task import Requirement, TargetOutput, Requires
+===================================
+Training The Model
+===================================
 
 
-class LocalImage(ExternalTask):
-    """Luigi external task that returns local data target"""
+Local Train
+===========================
+.. image:: 1.jpg
 
-    __version__ = "1.0"
+This path on the graph is used for train code development purposes only. Local Model Training starts with a Luigi
+external target to output the OCT images. Because there are around 80,000 images in the train set, another Luigi task
+is called to take a small random sample of the images from different classes.
 
-    LOCAL_ROOT = os.path.join(os.getcwd(), "data")
-    LOCAL_IMAGE = os.path.join(LOCAL_ROOT, "OCT2017")
-
-    def output(self):
-        """Atomic target to the location of OCT images"""
-        return SuffixPreservingLocalTarget(self.LOCAL_IMAGE, format=format.Nop)
-
-
-class LocalImageReduced(Task):
+.. code-block::
+    class LocalImageReduced(Task):
     """Luigi external task that returns a target for a small subset of train data"""
 
     __version__ = "1.0"
@@ -53,3 +46,5 @@ class LocalImageReduced(Task):
                     break
                 elif "test" in dst_dir and counter > 10:
                     break
+
+

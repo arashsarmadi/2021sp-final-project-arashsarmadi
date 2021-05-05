@@ -32,6 +32,7 @@ class ConvNeural(ExternalPythonProgramTask):
     virtualenv = os.path.join(extra_pythonpath, "final_project/tasks/ML_env/.venv")
 
     def program_args(self):
+        "executes a shell script where a new venv is created for ML envirionment and the train or test code is run"
         data_path = os.path.join(self.LOCAL_ROOT, self.data_source)
         ml_path = "final_project/tasks/ML_env"
         model_path = self.temp_output_path
