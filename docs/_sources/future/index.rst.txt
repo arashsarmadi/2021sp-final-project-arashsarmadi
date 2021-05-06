@@ -10,7 +10,8 @@ Automated Cluster Run
 As described before, Luigi ExternalProgramTask can be used to trigger SSH connection. So instead of manually building
 the model on remote cluster, we can use Python subprocess to send several commands that includes resource allocation
 request, activating environments and running the convolutional neural network package. An example of using subprocess
-is shown below
+is shown below where the subprocess runs a command, waits until it is finished and then execute the second command and
+so on
 
 .. code-block::
 
@@ -37,7 +38,7 @@ is shown below
 
 This feature is already under development.
 
-Problem Description
+Cookiecutter
 ===========================
 
 .. image:: cookie.png

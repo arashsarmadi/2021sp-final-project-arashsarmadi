@@ -6,8 +6,8 @@ Reporting Prediction Results
 
 
 This task is called on the local machine in the main environment. It will get the prediction results from the test task
-and it will report some simple statistics and saves a salted figure. Please not this is a very simple and generic report
-and is not a contribution of this project. The project aims to build a reproducible and simple to use pipline for ML
+and it will report some simple statistics and saves a salted figure. Please note this is a very simple and generic report
+and is not a contribution of this project. The project aims to build a reproducible and simple-to-use pipline for ML
 projects of this type.
 
 .. code-block::

@@ -169,7 +169,7 @@
 <h1>Training The Model<a class="headerlink" href="#training-the-model" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="local-train">
 <h2>Local Train<a class="headerlink" href="#local-train" title="Permalink to this headline">¶</a></h2>
-<p>This path on the graph is used for train code development purposes only. Local Model Training starts with a Luigi
+<p>This path on the graph is used for the train code development purposes only. Local Model Training starts with a Luigi
 external target to output the OCT images. Because there are around 80,000 images in the train set, another Luigi task
 is called to take a small random sample of the images from different classes. Also, composition is used for this task
 to define the task requirements and target output</p>
@@ -255,7 +255,7 @@ will be shown in the next sections</p>
 </pre></div>
 </div>
 <p>Below is the shell script that is called above. Note that PIPENV_VENV_IN_PROJECT=1 will result in a venv that is created
-in locally in the provided directory where a second pipfile is availbe with ML packages</p>
+locally in the provided directory where a second pipfile is available with ML packages</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/sh
 data=${1}
 out=${2}

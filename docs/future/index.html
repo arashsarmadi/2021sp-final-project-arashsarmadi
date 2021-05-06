@@ -93,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../plot/index.html">Reporting Prediction Results</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Future Work</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#automated-cluster-run">Automated Cluster Run</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#problem-description">Problem Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cookiecutter">Cookiecutter</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../conclusion/index.html">Conclusion</a></li>
@@ -172,7 +172,8 @@
 <p>As described before, Luigi ExternalProgramTask can be used to trigger SSH connection. So instead of manually building
 the model on remote cluster, we can use Python subprocess to send several commands that includes resource allocation
 request, activating environments and running the convolutional neural network package. An example of using subprocess
-is shown below</p>
+is shown below where the subprocess runs a command, waits until it is finished and then execute the second command and
+so on</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
@@ -197,8 +198,8 @@ is shown below</p>
 </div>
 <p>This feature is already under development.</p>
 </div>
-<div class="section" id="problem-description">
-<h2>Problem Description<a class="headerlink" href="#problem-description" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cookiecutter">
+<h2>Cookiecutter<a class="headerlink" href="#cookiecutter" title="Permalink to this headline">¶</a></h2>
 <img alt="../_images/cookie.png" src="../_images/cookie.png" />
 <p>This problem of runnig a compute-intensive part of the code on a cluster computer is very generic and applies to many
 problems esp. in the field of machine learning. So this is a very good candidate of a cookiecutter template.</p>
