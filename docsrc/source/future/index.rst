@@ -37,7 +37,7 @@ is shown below
 
 This feature is already under development.
 
-Problem Description
+Cookiecutter
 ===========================
 
 .. image:: cookie.png
