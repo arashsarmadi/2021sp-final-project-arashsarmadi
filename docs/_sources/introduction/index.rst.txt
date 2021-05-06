@@ -27,7 +27,7 @@ machine as the GPU allocation is limited in time and it is not also easy to work
 as the cluster machine does not have many tools available. The back and forth between the local machine and the
 remote machine is done manually by downloading model files through a web interface and then running some code locally.
 
-This can potentially lead tos data-dependency hell as it is extremely hard to track down what model was build based on
+This can potentially lead to data-dependency hell as it is extremely hard to track down what model was build based on
 what parameters and what plots came from which model.
 
 Another potential problem is package dependency hell where different packages have different dependency requirements.
@@ -38,7 +38,7 @@ in issues.
 Advanced Python Solutions
 ===========================
 
-Below concepts are used to develop this project based on the learnings from CSCI-E29 course:
+Below concepts are used to develop this project based on the learnings from the  CSCI-E29 course:
 
 - Luigi
 
