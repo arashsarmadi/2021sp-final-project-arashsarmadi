@@ -6,7 +6,7 @@ Training The Model
 Local Train
 ===========================
 
-This path on the graph is used for train code development purposes only. Local Model Training starts with a Luigi
+This path on the graph is used for the train code development purposes only. Local Model Training starts with a Luigi
 external target to output the OCT images. Because there are around 80,000 images in the train set, another Luigi task
 is called to take a small random sample of the images from different classes. Also, composition is used for this task
 to define the task requirements and target output
@@ -97,7 +97,7 @@ will be shown in the next sections
                 super().run()
 
 Below is the shell script that is called above. Note that PIPENV_VENV_IN_PROJECT=1 will result in a venv that is created
-in locally in the provided directory where a second pipfile is availbe with ML packages
+locally in the provided directory where a second pipfile is available with ML packages
 
 .. code-block::
 
