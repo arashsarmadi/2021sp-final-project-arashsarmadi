@@ -13,9 +13,27 @@ before_script:
 script:
   - skip
 
-deploy:
-  skip_cleanup: true
-  on:
-    branch: master
-  provider: script
-  script: pipenv run python submit.py
+branches:
+  only:
+    - master
+  except:
+    - develop
+stages:
+  - build
+jobs:
+  include:
+    - stage: build
+      name: Deploy to GitHub Pages
+      script:
+        - pipenv run python submit.py
+        - pipenv run make -C docs/ html
+        - touch docs/build/html/.nojekyll
+      deploy:
+        provider: pages:git
+        verbose: true
+        token: "$CI_USER_TOKEN"
+        edge: true
+        local_dir: ./docs/build/html/
+        keep_history: true
+        on:
+          branch: master
