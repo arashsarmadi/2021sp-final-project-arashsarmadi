@@ -13,11 +13,6 @@ before_script:
 script:
   - skip
 
-branches:
-  only:
-    - master
-  except:
-    - develop
 stages:
   - build
 jobs:
